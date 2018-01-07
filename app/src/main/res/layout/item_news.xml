@@ -51,7 +51,7 @@
             android:tint="@color/primary" />
 
         <TextView
-            android:id="@+id/tv_newa_brief"
+            android:id="@+id/tv_news_brief"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/iv_publication_logo"
@@ -68,9 +68,9 @@
             android:id="@+id/iv_news_img"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_newa_brief"
+            android:layout_below="@id/tv_news_brief"
             android:layout_marginTop="16dp"
-            android:scaleType="center"
+            android:scaleType="fitCenter"
             android:src="@drawable/img_dummy_news" />
 
         <TextView

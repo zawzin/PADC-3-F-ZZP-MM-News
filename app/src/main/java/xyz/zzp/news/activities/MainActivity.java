@@ -9,16 +9,24 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import xyz.zzp.news.MMNewsApp;
 import xyz.zzp.news.R;
 import xyz.zzp.news.adapters.NewsAdapter;
+import xyz.zzp.news.data.models.NewsModel;
 import xyz.zzp.news.delegates.NewsActionDelegate;
+import xyz.zzp.news.events.LoadedNewsEvent;
 
 public class MainActivity extends AppCompatActivity
         implements NewsActionDelegate{
@@ -49,10 +57,22 @@ public class MainActivity extends AppCompatActivity
 //                LinearLayoutManager.HORIZONTAL,false);
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext(),1);
-
         rvNews.setLayoutManager(gridLayoutManager);
-
         rvNews.setAdapter(mNewsAdapter);
+
+        NewsModel.getObjInstance().loadNews();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        EventBus.getDefault().unregister(this);
     }
 
     @Override
@@ -102,5 +122,11 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onTapFavouriteButton() {
 
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onNewsLoaded(LoadedNewsEvent loadedNewsEvent){
+        Log.d(MMNewsApp.LOG_TAG,"onNewsLoaded : "+ loadedNewsEvent.getNewsList().size());
+        mNewsAdapter.setNews(loadedNewsEvent.getNewsList());
     }
 }

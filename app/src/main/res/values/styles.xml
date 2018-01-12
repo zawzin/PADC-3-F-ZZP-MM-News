@@ -25,5 +25,15 @@
         <item name="android:shadowColor">@color/black_full</item>
     </style>
 
+    <style name="onefootball">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">Onefootball</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/secondary_text</item>
+        <item name="android:drawableLeft">@drawable/img_dummy_onefootball</item>
+        <item name="android:drawablePadding">8dp</item>
+    </style>
+
 
 </resources>

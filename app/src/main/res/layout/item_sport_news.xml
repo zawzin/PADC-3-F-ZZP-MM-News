@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <View android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider"
+        />
+    <ImageView
+        android:id="@+id/iv_sport_news_img"
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:layout_margin="8dp"
+        android:src="@drawable/img_dummy_news"
+        android:scaleType="centerCrop"/>
+    <TextView
+        android:id="@+id/tv_sport_news_brief"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kane reveals sacrifices behind beating Messsi, Ronaldo fdfsdfsdfsdsdf"
+        android:layout_alignTop="@id/iv_sport_news_img"
+        android:layout_toRightOf="@id/iv_sport_news_img"
+        android:layout_marginRight="32dp"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:textColor="@color/primary_text"
+        android:textSize="16sp"/>
+    <TextView
+        android:id="@+id/lbl_one_football"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/onefootball"
+        android:layout_alignLeft="@id/tv_sport_news_brief"
+        android:layout_alignBottom="@id/iv_sport_news_img"/>
+
+</RelativeLayout>

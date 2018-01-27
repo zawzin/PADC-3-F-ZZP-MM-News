@@ -11,4 +11,10 @@ public interface NewsDataAgent {
      */
     void loadNews();
 
+    /**
+     * load user from network api.
+     * @param phoneNo
+     * @param password
+     */
+    void loginUser(String phoneNo, String password);
 }

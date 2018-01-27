@@ -37,6 +37,8 @@ public class ItemNewsViewHolder extends RecyclerView.ViewHolder {
 
     private NewsActionDelegate mNewsActionDelegate;
 
+    private NewsVO mNews;
+
     public ItemNewsViewHolder(View itemView, NewsActionDelegate newsActionDelegate)
     {
         super(itemView);
@@ -46,14 +48,16 @@ public class ItemNewsViewHolder extends RecyclerView.ViewHolder {
 
     }
 
-    @OnClick (R.id.cv_news_item_root)
+    @OnClick(R.id.rl_news_item)
     public void onNewsItemTap(View view){
 
-        mNewsActionDelegate.onTapNewsItem();
+        mNewsActionDelegate.onTapNewsItem(mNews);
 
     }
 
     public void setNews(NewsVO news){
+        mNews = news;
+
         tvPublicationTitle.setText(news.getPublication().getTitle());
         tvNewsBrief.setText(news.getBrief());
         tvPostedDate.setText(news.getPostedDate());

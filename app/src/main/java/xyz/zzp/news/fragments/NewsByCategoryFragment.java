@@ -1,5 +1,6 @@
 package xyz.zzp.news.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -17,8 +18,10 @@ import org.greenrobot.eventbus.ThreadMode;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import xyz.zzp.news.R;
+import xyz.zzp.news.activities.NewsDetailsActivity;
 import xyz.zzp.news.adapters.NewsAdapter;
 import xyz.zzp.news.data.models.NewsModel;
+import xyz.zzp.news.data.vo.NewsVO;
 import xyz.zzp.news.delegates.NewsActionDelegate;
 import xyz.zzp.news.events.LoadedNewsEvent;
 
@@ -63,8 +66,10 @@ public class NewsByCategoryFragment extends Fragment implements NewsActionDelega
     }
 
     @Override
-    public void onTapNewsItem() {
-
+    public void onTapNewsItem(NewsVO tappedNews) {
+        Intent intent = new Intent(getContext(),NewsDetailsActivity.class);
+        intent.putExtra("news_id",tappedNews.getNewsId());
+        startActivity(intent);
     }
 
     @Override

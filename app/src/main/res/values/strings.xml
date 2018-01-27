@@ -18,4 +18,16 @@
     နိုင်ငံတော်၏ အတိုင်ပင်ခံပုဂ္ဂိုလ် ဒေါ်အောင်ဆန်းစုကြည်နှင့် တရုတ်သမ္မတ ရှီကျင်ပင်း ဦးဆောင်သည့် ကိုယ်စားလှယ်အဖွဲ့ တွေ့ဆုံပြီး နှစ်နိုင်ငံ ထိပ်သီးဆွေးနွေးပွဲကျင်းပ</string>
 
     <string name="title_news_by_category">News By Category</string>
+    <string name="title_all_news">All News</string>
+
+    <string name="menu_all_news">All News</string>
+    <string name="menu_news_by_category">News By Category</string>
+
+    <string name="to_login">LOGIN ဝင်ရန်</string>
+    <string name="to_regsister">REGSISTER ပြုလုပ်ရန်</string>
+    <string name="btn_forgot_password"><![CDATA[<i><b>Password မေ့သွားလို့</b></i>]]></string>
+
+    <string name="btn_new_seller_register"><![CDATA[<u><i>Register ပြုလုပ်ရန်</i></u>]]></string>
+
+    <string name="btn_to_login"><u><i>To Login</i></u></string>
 </resources>

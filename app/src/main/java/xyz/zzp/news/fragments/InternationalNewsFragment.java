@@ -1,5 +1,6 @@
 package xyz.zzp.news.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -13,7 +14,9 @@ import android.view.ViewGroup;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import xyz.zzp.news.R;
+import xyz.zzp.news.activities.NewsDetailsActivity;
 import xyz.zzp.news.adapters.InternationalNewsListAdapter;
+import xyz.zzp.news.data.vo.NewsVO;
 import xyz.zzp.news.delegates.NewsActionDelegate;
 
 /**
@@ -40,8 +43,10 @@ public class InternationalNewsFragment extends Fragment implements NewsActionDel
     }
 
     @Override
-    public void onTapNewsItem() {
-
+    public void onTapNewsItem(NewsVO tappedNews) {
+        Intent intent = new Intent(getContext(),NewsDetailsActivity.class);
+        intent.putExtra("news_id", tappedNews.getNewsId());
+        startActivity(intent);
     }
 
     @Override

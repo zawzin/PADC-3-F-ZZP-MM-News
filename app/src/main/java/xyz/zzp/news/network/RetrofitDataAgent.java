@@ -13,7 +13,9 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import xyz.zzp.news.events.LoadedNewsEvent;
+import xyz.zzp.news.events.SuccessLoginEvent;
 import xyz.zzp.news.network.responses.GetNewsResponse;
+import xyz.zzp.news.network.responses.LoginResponse;
 
 /**
  * Created by Lenovo on 1/6/2018.
@@ -32,7 +34,7 @@ public class RetrofitDataAgent implements NewsDataAgent {
                 .build();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://padcmyanmar.com/padc-3/mm-news/apis/v1/")
+                .baseUrl("http://padcmyanmar.com/padc-3/mm-news/apis/")
                 .addConverterFactory(GsonConverterFactory.create(new Gson()))
                 .client(httpClient)
                 .build();
@@ -50,7 +52,7 @@ public class RetrofitDataAgent implements NewsDataAgent {
     @Override
     public void loadNews() {
 
-        Call<GetNewsResponse> getNewsResponseCall = mNewApi.getNews(1,"b002c7e1a528b7cb460933fc2875e916");
+        Call<GetNewsResponse> getNewsResponseCall = mNewApi.getNews(2,"b002c7e1a528b7cb460933fc2875e916");
         getNewsResponseCall.enqueue(new Callback<GetNewsResponse>() {
             @Override
             public void onResponse(Call<GetNewsResponse> call, Response<GetNewsResponse> response) {
@@ -64,6 +66,29 @@ public class RetrofitDataAgent implements NewsDataAgent {
 
             @Override
             public void onFailure(Call<GetNewsResponse> call, Throwable t) {
+
+            }
+        });
+
+    }
+
+    @Override
+    public void loginUser(String phoneNo, String password) {
+
+        Call<LoginResponse> getUserLoginResponseCall = mNewApi.loginUser(phoneNo, password);
+        getUserLoginResponseCall.enqueue(new Callback<LoginResponse>() {
+            @Override
+            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                LoginResponse loginResponse = response.body();
+
+                if(loginResponse != null){
+                    SuccessLoginEvent event = new SuccessLoginEvent(loginResponse.getLoginusers());
+                    EventBus.getDefault().post(event);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<LoginResponse> call, Throwable t) {
 
             }
         });

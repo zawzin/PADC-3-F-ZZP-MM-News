@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="8dp"
     android:layout_marginBottom="32dp"
-    android:orientation="vertical"
-    >
+    android:layout_marginTop="8dp"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -14,92 +12,215 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:background="@color/red">
-            <TextView
-                android:id="@+id/tv_live"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Live"
-                android:drawableLeft="@drawable/ic_brightness_1_18dp"
-                android:drawableTint="@color/white_full"
-                android:textSize="14sp"
-                android:textColor="@color/white_full"
-                android:textStyle="bold"
-                android:layout_margin="8dp"/>
-            <TextView
-                android:id="@+id/tv_international_hot_news_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Brexit: penalising UK banks 'will pose financial risk to EU'"
-                android:layout_toRightOf="@id/tv_live"
-                android:layout_margin="16dp"
-                android:textColor="@color/white_full"
-                android:textSize="20sp"
-                android:fontFamily="serif"/>
-            <TextView
+
+        <TextView
+            android:id="@+id/tv_live"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:drawableLeft="@drawable/ic_brightness_1_18dp"
+            android:drawableTint="@color/white_full"
+            android:text="Live"
+            android:textColor="@color/white_full"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_international_hot_news_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_toRightOf="@id/tv_live"
+            android:fontFamily="serif"
+            android:text="Brexit: penalising UK banks 'will pose financial risk to EU'"
+            android:textColor="@color/white_full"
+            android:textSize="20sp" />
+
+        <TextView
             android:id="@+id/tv_international_news_time_ago"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-                android:text="19m"
-                android:drawableLeft="@drawable/ic_watch_later_18dp"
-                android:layout_below="@id/tv_international_hot_news_title"
-                android:layout_alignLeft="@id/tv_live"
-                android:textColor="@color/white_full"
-                android:drawableTint="@color/white_full"
-                android:textSize="14sp"
-                android:drawablePadding="2dp"/>
-            <View
-                android:layout_width="0.8dp"
-                android:layout_height="22dp"
-                android:foreground="@color/white_full"
-                android:layout_toRightOf="@id/tv_international_news_time_ago"
-                android:layout_alignTop="@id/tv_international_news_time_ago"
-                android:layout_marginLeft="4dp"
-                />
-            <TextView
-                android:id="@+id/tv_international_news_comments"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="788"
-                android:drawableLeft="@drawable/ic_chat_bubble_16dp"
-                android:layout_alignTop="@id/tv_international_news_time_ago"
-                android:layout_toRightOf="@id/tv_international_news_time_ago"
-                android:layout_marginLeft="12dp"
-                android:textColor="@color/white_full"
-                android:drawableTint="@color/white_full"
-                android:drawablePadding="2dp"/>
+            android:layout_alignLeft="@id/tv_live"
+            android:layout_below="@id/tv_international_hot_news_title"
+            android:drawableLeft="@drawable/ic_watch_later_18dp"
+            android:drawablePadding="2dp"
+            android:drawableTint="@color/white_full"
+            android:text="19m"
+            android:textColor="@color/white_full"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="0.8dp"
+            android:layout_height="22dp"
+            android:layout_alignTop="@id/tv_international_news_time_ago"
+            android:layout_marginLeft="4dp"
+            android:layout_toRightOf="@id/tv_international_news_time_ago"
+            android:foreground="@color/white_full" />
+
+        <TextView
+            android:id="@+id/tv_international_news_comments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/tv_international_news_time_ago"
+            android:layout_marginLeft="12dp"
+            android:layout_toRightOf="@id/tv_international_news_time_ago"
+            android:drawableLeft="@drawable/ic_chat_bubble_16dp"
+            android:drawablePadding="2dp"
+            android:drawableTint="@color/white_full"
+            android:text="788"
+            android:textColor="@color/white_full" />
+
         <ImageView
             android:id="@+id/iv_international_hot_news_img"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:src="@drawable/img_dummy_news"
             android:layout_below="@id/tv_international_news_time_ago"
+            android:layout_marginTop="4dp"
             android:scaleType="centerCrop"
-            android:layout_marginTop="4dp"/>
-        <View
-            android:id="@+id/v_divider"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:foreground="@color/cyan"
-            android:layout_below="@id/iv_international_hot_news_img"
-            />
+            android:src="@drawable/img_dummy_news" />
+
         <TextView
             android:id="@+id/tv_international_news_brief"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="UK aid firms / Millions in EU funds may be lost if no deal agreed"
-            android:layout_below="@id/v_divider"
-            android:paddingTop="8dp"
-            android:paddingLeft="8dp"
-            android:paddingBottom="16dp"
-            android:background="@color/white_full"
-            android:textColor="@color/primary_text"
-            android:textSize="14sp"
+            android:layout_below="@id/iv_international_hot_news_img"
+            android:background="@drawable/top_cyan_border"
             android:fontFamily="serif"
-            android:paddingRight="64dp"/>
-        </RelativeLayout>
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_international_news"
+            android:paddingBottom="16dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="64dp"
+            android:paddingTop="8dp"
+            android:text="UK aid firms / Millions in EU funds may be lost if no deal agreed"
+            android:textColor="@color/primary_text"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_second_news"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginRight="16dp"/>
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:weightSum="2">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/top_cyan_border"
+            android:layout_marginRight="8dp"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_marginBottom="16dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nuclear weapons / US to loosen policy and develop more 'usable' warheads"
+                android:layout_margin="8dp"
+                android:textSize="14sp"
+                android:textColor="@color/primary_text"
+                android:maxLines="4"
+                android:ellipsize="end"
+                android:fontFamily="serif"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="15m"
+                android:drawableLeft="@drawable/ic_watch_later_18dp"
+                android:textColor="@color/secondary_text"
+                android:drawableTint="@color/secondary_text"
+                android:textSize="12sp"
+                android:layout_marginLeft="8dp"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/img_dummy_news"
+                android:scaleType="centerCrop"
+                android:layout_marginTop="4dp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:background="@drawable/top_cyan_border"
+            android:layout_marginLeft="8dp"
+            android:layout_marginBottom="16dp">
+            <TextView
+                android:id="@+id/tv_international_news_brief_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nuclear weapons / US to loosen policy and develop more 'usable' warheads"
+                android:layout_margin="8dp"
+                android:textSize="14sp"
+                android:textColor="@color/primary_text"
+                android:maxLines="4"
+                android:ellipsize="end"
+                android:fontFamily="serif"/>
+            <TextView
+                android:id="@+id/tv_international_news_time_ago_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="15m"
+                android:drawableLeft="@drawable/ic_watch_later_18dp"
+                android:textColor="@color/secondary_text"
+                android:drawableTint="@color/secondary_text"
+                android:textSize="12sp"
+                android:layout_marginLeft="8dp"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/img_dummy_news"
+                android:scaleType="centerCrop"
+                android:layout_marginTop="4dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_international_news"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/top_cyan_border"
+            android:padding="8dp"
+            android:text="UK aid firms / Millions in EU funds may be lost if no deal agreed"
+            android:textColor="@color/primary_text"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/top_cyan_border"
+            android:padding="8dp"
+            android:text="UK aid firms / Millions in EU funds may be lost if no deal agreed"
+            android:textColor="@color/primary_text"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/top_cyan_border"
+            android:padding="8dp"
+            android:text="UK aid firms / Millions in EU funds may be lost if no deal agreed"
+            android:textColor="@color/primary_text"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/top_cyan_border"
+            android:padding="8dp"
+            android:text="UK aid firms / Millions in EU funds may be lost if no deal agreed"
+            android:textColor="@color/primary_text"
+            android:textSize="14sp"/>
+
+    </LinearLayout>
 </LinearLayout>

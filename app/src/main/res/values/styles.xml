@@ -34,6 +34,12 @@
         <item name="android:drawableLeft">@drawable/img_dummy_onefootball</item>
         <item name="android:drawablePadding">8dp</item>
     </style>
-
+    <style name="accent_button">
+        <item name="android:background">@color/accent</item>
+        <item name="android:paddingLeft">@dimen/margin_medium_2</item>
+        <item name="android:paddingRight">@dimen/margin_medium_2</item>
+        <item name="android:textColor">@color/white_full</item>
+        <item name="android:textSize">@dimen/text_regular</item>
+    </style>
 
 </resources>

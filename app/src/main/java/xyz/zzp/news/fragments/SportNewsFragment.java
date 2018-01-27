@@ -20,7 +20,7 @@ import xyz.zzp.news.delegates.NewsActionDelegate;
  * Created by Lenovo on 1/7/2018.
  */
 
-public class SportNewsFragment extends Fragment implements NewsActionDelegate {
+public class SportNewsFragment extends Fragment {
 
     @BindView(R.id.rv_sport_news_list)
     RecyclerView rvSportNewsList;
@@ -41,23 +41,4 @@ public class SportNewsFragment extends Fragment implements NewsActionDelegate {
         return view;
     }
 
-    @Override
-    public void onTapNewsItem() {
-
-    }
-
-    @Override
-    public void onTapCommentButton() {
-
-    }
-
-    @Override
-    public void onTapSentToButton() {
-
-    }
-
-    @Override
-    public void onTapFavouriteButton() {
-
-    }
 }

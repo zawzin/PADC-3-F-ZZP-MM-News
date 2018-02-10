@@ -6,4 +6,6 @@ package xyz.zzp.news.delegates;
 
 public interface LoginUserDelegate {
     void onTapLogout();
+
+    void onTapLoginUser();
 }

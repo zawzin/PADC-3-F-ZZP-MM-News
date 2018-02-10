@@ -55,7 +55,7 @@ public class InternationalNewsFragment extends Fragment implements NewsActionDel
     }
 
     @Override
-    public void onTapSentToButton() {
+    public void onTapSentToButton(NewsVO tappedNews) {
 
     }
 

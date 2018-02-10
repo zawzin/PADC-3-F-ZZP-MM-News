@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import butterknife.ButterKnife;
 import xyz.zzp.news.R;
 import xyz.zzp.news.delegates.BeforeLoginDelegate;
+import xyz.zzp.news.delegates.LoginScreenDelegate;
 import xyz.zzp.news.fragments.LoginFragment;
 import xyz.zzp.news.fragments.RegsisterFragment;
 
@@ -16,7 +17,7 @@ import xyz.zzp.news.fragments.RegsisterFragment;
  * Created by Lenovo on 1/20/2018.
  */
 
-public class AccountControlActivity extends AppCompatActivity {
+public class AccountControlActivity extends BaseActivity implements LoginScreenDelegate{
 
     private static final String IE_SCREEN_TYPE = "IE_SCREEN_TYPE";
     private static final int SCREEN_TYPE_LOGIN = 1;
@@ -49,5 +50,14 @@ public class AccountControlActivity extends AppCompatActivity {
                     .replace(R.id.fl_container, new RegsisterFragment())
                     .commit();
         }
+    }
+
+    @Override
+    public void onTapToRegister() {
+        getSupportFragmentManager().beginTransaction()
+                .setCustomAnimations(R.anim.enter,R.anim.exit,R.anim.pop_enter,R.anim.pop_exit)
+                .replace(R.id.fl_container, new RegsisterFragment())
+                .addToBackStack("ToRegister")
+                .commit();
     }
 }

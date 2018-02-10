@@ -1,5 +1,6 @@
 package xyz.zzp.news.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -18,6 +19,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import xyz.zzp.news.R;
 import xyz.zzp.news.data.models.LoginUserModel;
+import xyz.zzp.news.delegates.LoginScreenDelegate;
 import xyz.zzp.news.events.SuccessLoginEvent;
 import xyz.zzp.news.network.NewsDataAgent;
 
@@ -32,6 +34,14 @@ public class LoginFragment extends Fragment {
 
     @BindView(R.id.et_password)
     EditText etPassword;
+
+    private LoginScreenDelegate mLoginScreenDelegate;
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mLoginScreenDelegate = (LoginScreenDelegate) context;
+    }
 
     @Nullable
     @Override
@@ -58,7 +68,11 @@ public class LoginFragment extends Fragment {
     public void onTapLogin(View view){
         String phoneNo = etEmailOrphoneNo.getText().toString();
         String password = etPassword.getText().toString();
-        LoginUserModel.getsObjectInstance().loginUser(phoneNo,password);
+        LoginUserModel.getsObjectInstance(getContext()).loginUser(getContext(),phoneNo,password);
+    }
+    @OnClick(R.id.btn_new_seller_register)
+    public void onTapToRegister(View view){
+        mLoginScreenDelegate.onTapToRegister();
     }
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onLoginUserSuccess(SuccessLoginEvent event){

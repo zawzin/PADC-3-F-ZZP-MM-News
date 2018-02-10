@@ -13,8 +13,10 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import xyz.zzp.news.R;
 import xyz.zzp.news.data.models.LoginUserModel;
+import xyz.zzp.news.data.vo.LoginUserVO;
 import xyz.zzp.news.delegates.BeforeLoginDelegate;
 import xyz.zzp.news.delegates.LoginUserDelegate;
 import xyz.zzp.news.events.SuccessLoginEvent;
@@ -31,6 +33,8 @@ public class AccountControlViewPod extends FrameLayout {
 
     @BindView(R.id.vp_login_user)
     LoginUserViewPod vpLoginUser;
+
+    private LoginUserDelegate mLoginUserDelegate;
 
     public AccountControlViewPod(@NonNull Context context) {
         super(context);
@@ -57,18 +61,26 @@ public class AccountControlViewPod extends FrameLayout {
     }
     public void setDelegate(LoginUserDelegate delegate){
         vpLoginUser.setDelegate(delegate);
+        mLoginUserDelegate = delegate;
     }
     private void refreshUserSession(){
 
-        if(LoginUserModel.getsObjectInstance().isUserLogin()){
+        if(LoginUserModel.getsObjectInstance(getContext()).isUserLogin()){
             vpBeforeLogin.setVisibility(View.GONE);
             vpLoginUser.setVisibility(View.VISIBLE);
+            vpLoginUser.bindData(LoginUserModel.getsObjectInstance(getContext()).getmLoginUser());
         }
         else {
             vpBeforeLogin.setVisibility(View.VISIBLE);
             vpLoginUser.setVisibility(View.GONE);
         }
     }
+
+    @OnClick(R.id.vp_login_user)
+    public void onTapLoginUser(View view){
+        mLoginUserDelegate.onTapLoginUser();
+    }
+
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onLoginUserSuccess(SuccessLoginEvent event){
         vpBeforeLogin.setVisibility(View.GONE);

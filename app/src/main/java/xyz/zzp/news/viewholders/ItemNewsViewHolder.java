@@ -54,6 +54,10 @@ public class ItemNewsViewHolder extends RecyclerView.ViewHolder {
         mNewsActionDelegate.onTapNewsItem(mNews);
 
     }
+    @OnClick(R.id.fl_sentTo)
+    public void onTapSendTo(View view){
+        mNewsActionDelegate.onTapSentToButton(mNews);
+    }
 
     public void setNews(NewsVO news){
         mNews = news;

@@ -8,6 +8,8 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
+import xyz.zzp.news.R;
+
 /**
  * Created by Lenovo on 1/7/2018.
  */

@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">PADC-3-F-ZZP-MM-News</string>
     <string name="action_settings">Settings</string>
 
@@ -30,4 +30,7 @@
     <string name="btn_new_seller_register"><![CDATA[<u><i>Register ပြုလုပ်ရန်</i></u>]]></string>
 
     <string name="btn_to_login"><u><i>To Login</i></u></string>
+    <string name="message_to_exit"><b><xliff:g id="name">%1$s</xliff:g></b>, Are you sure to exit MM-News</string>
+    <string name="msg_generic_no_data">လက်ရှိdataပြစရာမရှိသေးပါ။</string>
+    <string name="lbl_refresh">Data ပြန်load လုပ်ရန်</string>
 </resources>
